@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters{
-    booleanParam(default Value: false,description: "Simulate the Promotion", name: 'SIMULa')
+    booleanParam(defaultValue: false,description: "Simulate the Promotion", name: 'SIMULa')
   }
 stages{
   stage("PROMOTE") {
