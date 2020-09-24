@@ -10,13 +10,6 @@ parameters {
   booleanParam defaultValue: true, description: 'checking go ahead or not?', name: 'continue?'
 }
 
-    stages {
-        stage("STAGE1"){
-            steps{
-                echo "${env.branchName}"
-            }
-        }
-    }
     stage('Build') {
   steps {
     echo "HI"
