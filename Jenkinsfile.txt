@@ -18,4 +18,4 @@ post {
     // One or more steps need to be included within each condition's block.
   }
 }
-emailext body: 'Hi, Please find the Build status', recipientProviders: [developers()], subject: 'Build status Checking', to: 'sys.nag.adm@gmail.com'
+emailext body: 'Hi, Please find the Build status', recipientProviders: [developers()], subject: 'Build status Checking', to: 'nkallutla8@gmail.com'
