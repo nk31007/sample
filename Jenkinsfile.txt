@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("BUILD") {
             steps {
-                input ("Should I continue?")
+                input 'Should I wait'
                 sleep 10
             }
         }
