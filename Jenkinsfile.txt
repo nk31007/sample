@@ -1,4 +1,4 @@
-branchName=source.getBranch()
+def branchName=source.getBranch()
 pipeline {
     agent any
     triggers {
