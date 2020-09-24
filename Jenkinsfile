@@ -2,13 +2,16 @@ pipeline {
     agent any
     triggers {
   cron '* * * * *'
-     }options {
+     }
+     
+     options {
   buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '2')
 }
 parameters {
   booleanParam defaultValue: true, description: 'checking go ahead or not?', name: 'continue?'
 }
 
+stages{
     stage('Build') {
   steps {
     echo "HI"
@@ -17,6 +20,7 @@ parameters {
   input {
     message 'Should I continue'
   }
+}
 }
 
 }
