@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '2')
+             }
+    stages {
+        stage("BUILD") {
+            steps {
+                sleep 10
+            }
+        }
+    }
+}
