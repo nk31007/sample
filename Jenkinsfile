@@ -7,8 +7,9 @@ stages{
   stage("PROMOTE") {
     when {
       expression {
-        currentBuild.getNumber() % 2==1 
-      }
+                    // only run when the current build number is odd
+                    currentBuild.getNumber() % 2 == 1
+                }
       steps {
         build job: currentBuild.getProjectName(), parameters: [
                     booleanParam(name: 'SIMUL', value: params.SIMUL)
