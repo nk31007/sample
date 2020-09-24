@@ -1,22 +1,11 @@
+branchName=source.getBranch()
 pipeline {
     agent any
-    options {
-  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '2')
-             }
     stages {
-        stage("BUILD") {
-            steps {
-                input 'Should I wait'
-                sleep 10
+        stage("STAGE1"){
+            steps{
+                echo "${branchName}"
             }
         }
     }
-
 }
-post {
-  always {
-    
-    // One or more steps need to be included within each condition's block.
-  }
-}
-emailext body: 'Hi, Please find the Build status', recipientProviders: [developers()], subject: 'Build status Checking', to: 'nkallutla8@gmail.com'
