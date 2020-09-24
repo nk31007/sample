@@ -1,11 +1,22 @@
-branchName=source.getBranch()
 pipeline {
     agent any
-    stages {
-        stage("STAGE1"){
-            steps{
-                echo "${branchName}"
-            }
-        }
-    }
+    triggers {
+  cron '* * * * *'
+     }options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '1', numToKeepStr: '2')
+}
+parameters {
+  booleanParam defaultValue: true, description: 'checking go ahead or not?', name: 'continue?'
+}
+
+    stage('Build') {
+  steps {
+    echo "HI"
+  }
+
+  input {
+    message 'Should I continue'
+  }
+}
+
 }
