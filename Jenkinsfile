@@ -1,7 +1,10 @@
 pipeline {
   agent {
-    label 'redhat'
-  }
+    docker {
+        dockerfile true
+        label 'docker'
+    }
+}
    stages{
     stage("Build")
     {
