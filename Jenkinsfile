@@ -1,27 +1,12 @@
-pipeline {
-  environment{
-    JAVA_TOOL_OPTIONS="-Duser.home=/home/jenkins"
-  }
-  agent {
-     dockerfile {
-        args "-v /tmp:/tmp -p 8000:8000"
-    }
-     }
-    
-    stages{
-      stage("MavenBUILD")
-      {
+pipeline{
         agent {
-
-        }
-        steps{
-        sh 'mvn -version'
-        }
-      }
+        dockerfile
     }
-    post{
-      always{
-        cleanWS()
-      }
+    stages{
+        stage("Build"){
+            steps
+            echo "Hi Welcome"
+        }
+        }
     }
 }
