@@ -11,7 +11,7 @@ pipeline {
     stages{
       stage("MavenBUILD")
       {
-        steps{}
+        steps{
         sh 'mvn -version'
         }
       }
