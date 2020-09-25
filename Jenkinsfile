@@ -1,24 +1,18 @@
 pipeline {
-  agent any
-  stages{
-    stage("Build"){
-      steps{
-        echo "Hi"
-      }
-    
+  agent{
+    dockerfilr {
+      label docker
+      args '-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
     }
-    stage("TEST"){
-      when {
-        expression { return 0 }
-      }
-      steps{
-        echo "in TEST stage"
+    }
+    stages{
+      stage("MavenBUILD"){
+        sh 'mvn -version'
       }
     }
-    stage("Deploy"){
-      steps{
-        echo "Hello Nageswara"
+    post{
+      always{
+        cleanWS
       }
     }
-  }
 }

@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    environment{
+        NF=sh script: 'cat /etc/passwd | wc -l',returnStdout: true
+        FN=ns()
+    }
+    stages {
+        stage("BUILD"){
+            steps {
+                echo "The No Of Lines are: ${env.NF}"
+                echo "The function returned value: ${env.FN}"
+                
+            }
+        }
+    }
+}
+
+def ns(){
+    return "Nageswara"
+}
