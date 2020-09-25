@@ -8,6 +8,9 @@ pipeline {
     environment {
     JAVA_TOOL_OPTIONS="-Duser.home=/var/maven"
   }
+  tools {
+  maven 'M3'
+}
     stages{
       stage("BUILD"){
         steps {
