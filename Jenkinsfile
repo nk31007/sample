@@ -11,8 +11,7 @@ pipeline {
         // skip this stage unless the expression evaluates to 'true'
         expression {
           echo "Should I run?"
-          return false
-        }
+          }
       }
       steps {
         echo "World"
