@@ -2,7 +2,7 @@ pipeline {
   agent {
     docker {
         dockerfile true
-        label 'docker'
+        label 'redhat'
     }
 }
    stages{
