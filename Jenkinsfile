@@ -18,7 +18,7 @@ pipeline {
     }
     post{
       always{
-        cleanWS
+        cleanWS()
       }
     }
 }
