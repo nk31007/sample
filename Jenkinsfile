@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label 'redhat'
+    dockerfile true
   }
    stages{
     stage("Build")
