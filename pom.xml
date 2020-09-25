@@ -14,10 +14,10 @@
   </parent>
   -->
 
-  <artifactId>sample</artifactId>
+<!--  <artifactId>sample</artifactId> -->
   <packaging>war</packaging>
-  <name>sample</name>
-  <description>sample.</description>
+  <name>sample-one</name>
+  <description>sample.m</description>
 
   <build>
     <finalName>${project.artifactId}</finalName>
