@@ -9,7 +9,7 @@ pipeline {
     }
     stage("TEST"){
       when {
-        expression { return 127 }
+        expression { return 0 }
       }
       steps{
         echo "in TEST stage"
