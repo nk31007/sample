@@ -4,20 +4,17 @@ pipeline {
   }
   agent {
     dockerfile {
-        label 'redhat'
-        args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
+      label 'redhat'
+      args '-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
     }
-   }
-
-   stages{
-    stage("Build")
-    {
-      steps{
-        sh "ssh -V"
-        sh "mvn -version"
-        sh "mvn clean install"
+    stages{
+      stage("BUILD"){
+        steps {
+          sh 'mvn -version'
+          sh 'ssh -V'
+          sh 'mvn clean install'
+        }
       }
     }
-   }
- }
+  }
 }
