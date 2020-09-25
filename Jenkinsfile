@@ -9,7 +9,7 @@ pipeline {
     }
     stage("TEST"){
       when {
-        expression { }
+        expression { echo "Hi"}
       }
     }
     stage("Deploy"){
