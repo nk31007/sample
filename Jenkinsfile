@@ -11,6 +11,9 @@ pipeline {
       when {
         expression { echo "Hi"}
       }
+      steps{
+        echo "in TEST stage"
+      }
     }
     stage("Deploy"){
       steps{
