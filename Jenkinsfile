@@ -17,7 +17,7 @@ pipeline {
             message "Press ok to continue"
 	    submitter "nk31007"
 	    parameters {
-   	         string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
+   	         string(name:'username', defaultValue: 'nk31007', description: 'Username of the user pressing Ok')
 		} 
                }
         steps {
