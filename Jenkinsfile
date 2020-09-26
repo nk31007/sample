@@ -24,12 +24,12 @@ pipeline {
 	       }*/
          steps {
            timeout(activity: true, time: 200, unit: 'SECONDS') {
-             input{
-               message "Press OK to Continue"
-               ok "Double okay"
-               submitter "i633184,nk31007,bhanu"
-               parameters {
-                 string(name:"submitting guy", defaultValue: "bhanu",description: "Username of the guy pressing ok")
+             input {
+                    message "Press OK to Continue"
+                    ok "Double okay"
+                    submitter "i633184,nk31007,bhanu"
+                    parameters {
+                    string(name:"submitting guy", defaultValue: "bhanu",description: "Username of the guy pressing ok")
                }
              }
 
