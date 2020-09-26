@@ -23,6 +23,7 @@ pipeline {
                }
 	       }*/
          steps {
+           options {
            timeout(activity: true, time: 200, unit: 'SECONDS') {
              input {
                     message "Press OK to Continue"
@@ -32,7 +33,7 @@ pipeline {
                     string(name:"submitting guy", defaultValue: "bhanu",description: "Username of the guy pressing ok")
                }
              }
-
+             }
            }
 	  echo "User: ${username} said ok." 
           sh 'mvn -version'
