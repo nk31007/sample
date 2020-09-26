@@ -13,7 +13,15 @@ pipeline {
 }
     stages{
       stage("BUILD"){
+      input{
+            message "Press ok to continue"
+	    submitter "nk31007"
+	    parameters {
+   	         string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
+		} 
+
         steps {
+	  echo "User: ${username} said ok." 
           sh 'mvn -version'
           sh 'ssh -V'
           sh 'mvn clean install'
