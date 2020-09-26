@@ -7,6 +7,7 @@ pipeline {
       }
       steps{
         catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED'){
+          sleep 20
         echo "STAGE BUILD STARTED"
         sleep 10
         }
