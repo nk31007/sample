@@ -1,24 +1,22 @@
 pipeline {
-  agent any
-  stages {
-   stage("STAGEA")  {
-     options {
-     timeout(time: 30, unit: 'SECONDS')
-  }
-  steps{
-    echo "I am in stage A"
-  }
+    agent any
 
-  stage("stageB"){
-    options {
-      timestamps()
-      }
-    steps{
-      echo "I am in STAGE-B"
-    }  
-  }
+    stages {
+        stage("A") {
+            options {
+                timeout(time: 3, unit: "SECONDS")
+            }
 
-  }
+            steps {
+                echo "Started stage A"
+                sleep(time: 5, unit: "SECONDS")
+            }
+        }
 
-  }
+        stage("B") {
+            steps {
+                echo "Started stage B"
+            }
+        }
+    }
 }
