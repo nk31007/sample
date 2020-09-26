@@ -1,23 +1,18 @@
 pipeline {
+  environment{
+    CODE="JAVA"
+    ENV="PROD"
+  }
   agent any
   stages {
     stage("BUILD"){
-      options{
-        timeout(time:5, unit: 'SECONDS')
-      }
-      steps{
-        catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED'){
-          sleep 20
-        echo "STAGE BUILD STARTED"
-        sleep 10
+      options {
+        timeout(time:5, unit:'SECONDS'){
+          input message: "Depply ${env.CODE} codebase to ${env.ENV}, ok: 'Deploy' "
         }
       }
-
-    }
-
-    stage("DEPLOY"){
-      steps{
-        echo "Hi This Nageswara an in Deployment STAGE"
+      steps {
+        echo "Deployment stage"
       }
     }
   }
