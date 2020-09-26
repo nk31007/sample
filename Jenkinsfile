@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage("BUILD"){
       options {
-        timeout(time:5, unit:'SECONDS')
+        timeout(time:50, unit:'SECONDS')
        
       }
       steps {
