@@ -5,7 +5,7 @@ pipeline {
     stage("BUILD"){
       options{
         timestamps()
-        timeout(time:5, unit:"SECONDS")
+        timeout(activity: true, time:5, unit:"SECONDS")
       }
       steps {
         echo "This is Nageswara Rao"
