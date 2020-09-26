@@ -12,7 +12,7 @@ pipeline {
       }
       steps {
         echo "Deployment stage"
-          input message: "Depply ${env.CODE} codebase to ${env.ENV}", ok: 'Deploy', description: "Testing the inputcode" 
+          input message: "Depply ${env.CODE} codebase to ${env.ENV}", ok: 'Deploy', submitter: 'i633184,bhanu'
       }
     }
   }
