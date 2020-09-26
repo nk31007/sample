@@ -13,6 +13,7 @@ pipeline {
 }
     stages{
       stage("BUILD"){
+      timeout(activity: true, time: 200, unit: SECONDS){
       input{
             message "Press ok to continue"
 	    submitter "nk31007"
@@ -20,6 +21,7 @@ pipeline {
    	         string(name:'username', defaultValue: 'nk31007', description: 'Username of the user pressing Ok')
 		} 
                }
+	       }
         steps {
 	  echo "User: ${username} said ok." 
           sh 'mvn -version'
