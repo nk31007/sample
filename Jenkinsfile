@@ -1,22 +1,21 @@
 pipeline {
-    agent any
+  agent any
+  stages {
+    stage("BUILD"){
+      options{
+        timeout(time:5, unit: 'SECONDS')
+      }
+      steps{
+        echo "STAGE BUILD STARTED"
+        sleep 10
+      }
 
-    stages {
-        stage("A") {
-            options {
-                timeout(time: 3, unit: "SECONDS")
-            }
-
-            steps {
-                echo "Started stage A"
-                sleep(time: 5, unit: "SECONDS")
-            }
-        }
-
-        stage("B") {
-            steps {
-                echo "Started stage B"
-            }
-        }
     }
+
+    stage("DEPLOY"){
+      steps{
+        echo "Hi This Nageswara an in Deployment STAGE"
+      }
+    }
+  }
 }
