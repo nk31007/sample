@@ -6,8 +6,10 @@ pipeline {
         timeout(time:5, unit: 'SECONDS')
       }
       steps{
+        catchError(buildResult: 'SUCCESS', stageResult: 'ABORTED'){
         echo "STAGE BUILD STARTED"
         sleep 10
+        }
       }
 
     }
