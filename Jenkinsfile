@@ -10,6 +10,7 @@ pipeline {
       steps {
         echo "This is Nageswara Rao"
       }
+    }
      stage("BUILDC") 
      {
        steps{
