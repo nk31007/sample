@@ -1,45 +1,24 @@
 pipeline {
-  agent {
-    dockerfile {
-      label 'redhat'
-      args '-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2'
-    }
+  agent any
+  stages{
+  stage("STAGEA")  {
+  options {
+    timeout(time: 30, unit: 'SECONDS')
   }
-    environment {
-    JAVA_TOOL_OPTIONS="-Duser.home=/home/jenkins"
+  steps{
+    echo "I am in stage A"
   }
-  tools {
-  maven 'M3'
-}
-    stages{
-      stage("BUILD"){
-     /* timeout(activity: true, time: 200, unit: SECONDS){
-      input{
-            message "Press ok to continue"
-	    submitter "nk31007"
-	    parameters {
-   	         string(name:'username', defaultValue: 'nk31007', description: 'Username of the user pressing Ok')
-		} 
-               }
-	       }*/
-         steps {
-           options {
-           timeout(activity: true, time: 200, unit: 'SECONDS') {
-             input {
-                    message "Press OK to Continue"
-                    ok "Double okay"
-                    submitter "i633184,nk31007,bhanu"
-                    parameters {
-                    string(name:"submitting guy", defaultValue: "bhanu",description: "Username of the guy pressing ok")
-               }
-             }
-             }
-           }
-	  echo "User: ${username} said ok." 
-          sh 'mvn -version'
-          sh 'ssh -V'
-          sh 'mvn clean install'
-        }
+
+  stage("stageB"){
+    options {
+      timestamps()
       }
-    }
+    steps{
+      echo "I am in STAGE-B"
+    }  
+  }
+
+  }
+
+  }
 }
