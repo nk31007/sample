@@ -3,7 +3,7 @@ pipeline {
         node {label 'redhat'}
         }
         options {
-            timesramps()
+            timestamps()
         }
         environment {
             IMAGE = readMavenPom().getArtifactId()
