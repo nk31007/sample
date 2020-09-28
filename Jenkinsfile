@@ -1,37 +1,21 @@
-pipeline {
+pipeline{
     agent {
-        node {label 'redhat'}
+        label 'redhat'
         }
-        options {
-            timestamps()
-        }
-        environment {
-            /*pom = readMavenPom file: 'pom.xml'
-            IMAGE = pom.getArtifactId
-            VERSION=pom.version
-            */
-            NAME1="Nageswara rao"
-        }
-
     stages {
-        stage("BUILD") {
-            agent {
-                docker {
-                    reuseNode true
-                    image 'maven:3.5.0-jdk-8'
+        stage("BUILD"){
+            agemt {
+                docker{
+                reuseNode true
+                image 'maven:3.5.0-jdk-8'
+                args '-v /root/.m2:/root/.m2'
                 }
             }
-            steps {
-                
-                    sh 'mvn clean package'
-                
-            }
-            post {
-                success {
-                    archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
-                }
-            }
-        }
-        }
 
+            steps {
+                sh 'mvn -DskipTests clean install'
+                echo "In Build Stage"
+            }
+        }
+    }
 }
