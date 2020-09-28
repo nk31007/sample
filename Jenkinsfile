@@ -15,11 +15,8 @@ pipeline{
                 args '-v /root/.m2:/root/.m2'
                 }
             }
-            tools {
-              git 'Default'
-            } 
-
             steps {
+                git 'https://github.com/nk31007/sample.git'     
                 sh 'mvn -DskipTests clean install'
                 echo "In Build Stage"
             }
