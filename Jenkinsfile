@@ -16,7 +16,6 @@ pipeline{
                 }
             }
             steps {
-                git 'https://github.com/nk31007/sample.git'     
                 sh 'mvn -DskipTests clean install'
                 echo "In Build Stage"
             }
