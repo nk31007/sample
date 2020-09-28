@@ -6,8 +6,9 @@ pipeline {
             timestamps()
         }
         environment {
-            IMAGE = readMavenPom().getArtifactId()
-            VERSION=readMaven().getVersion()
+            pom = readMavenPom file: 'pom.xml'
+            IMAGE = pom.getArtifactId
+            VERSION=pom.version
         }
 
     stages {
