@@ -15,6 +15,9 @@ pipeline{
                 args '-v /root/.m2:/root/.m2'
                 }
             }
+            tools {
+              git 'Default'
+            } 
 
             steps {
                 sh 'mvn -DskipTests clean install'
