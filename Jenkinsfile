@@ -10,6 +10,7 @@ pipeline {
             IMAGE = pom.getArtifactId
             VERSION=pom.version
             */
+            NAME1="Nageswara rao"
         }
 
     stages {
