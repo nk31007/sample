@@ -22,9 +22,9 @@ pipeline {
                 }
             }
             steps {
-                withMaven(){
+                
                     sh 'mvn clean package'
-                }
+                
             }
             post {
                 success {
