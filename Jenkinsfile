@@ -2,10 +2,10 @@ pipeline{
     agent {
         label 'redhat'
         }
-        tools {
-                  git 'Default'
-              }
-
+        options {
+            skipDefaultCheckout true
+        }
+       
     stages {
         stage("BUILD"){
             agent {
@@ -16,6 +16,7 @@ pipeline{
                 }
             }
             steps {
+                git 'https://github.com/nk31007/sample.git'
                 sh 'mvn -DskipTests clean install'
                 echo "In Build Stage"
             }
