@@ -16,7 +16,7 @@ pipeline{
                 }
             }
             steps {
-                
+                sh 'mvn --version'
                 sh 'mvn -DskipTests clean install'
                 echo "In Build Stage"
             }
